@@ -25,7 +25,12 @@ if "%1"=="clean" (
 )
 
 if "%1"=="weekend" (
-    call weekend.bat
+    call weekend_supervisor.bat
+    goto :eof
+)
+
+if "%1"=="supervise" (
+    call weekend_supervisor.bat
     goto :eof
 )
 
@@ -44,7 +49,8 @@ if "%1"=="publish-write" (
 echo Usage:
 echo   dev.bat test         - Run pytest suite
 echo   dev.bat health       - Run environment health check
-echo   dev.bat weekend      - Start autonomous weekend benchmark loop
+echo   dev.bat weekend      - Start supervised weekend loop (recommended)
+echo   dev.bat supervise    - Same as weekend
 echo   dev.bat publish      - Preview benchmark report (dry-run)
 echo   dev.bat publish-write - Write benchmark report to logs\published
 echo   dev.bat clean        - Remove Python cache files
