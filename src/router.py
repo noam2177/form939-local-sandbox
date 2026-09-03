@@ -15,6 +15,8 @@ from typing import Any, ClassVar, Sequence
 import pandas as pd
 from pydantic import ValidationError
 
+from utils import log_execution_time_async
+
 import litellm
 from litellm import acompletion, completion_cost
 from litellm.exceptions import (
@@ -88,6 +90,8 @@ JsonMode = str  # "schema" | "json" | "prompt"
 
 @dataclass(frozen=True, slots=True)
 class ModelBenchmarkResult:
+    """Represents the result of a single model extraction attempt."""
+    run_id: str
     filename: str
     model: str
     litellm_model: str
@@ -96,17 +100,21 @@ class ModelBenchmarkResult:
     parsed_output: dict[str, Any] | None
     success: bool
     error: str | None
+    error_type: str | None
     prompt_tokens: int | None
     completion_tokens: int | None
     timestamp_utc: str
+    flag_cloud_escalation: bool = False
 
     def to_row(self) -> dict[str, Any]:
+        """Convert the result into a flat dictionary suitable for a pandas DataFrame."""
         parsed = self.parsed_output or {}
         principal = parsed.get("principal") if isinstance(parsed.get("principal"), dict) else {}
         attorney = (
             parsed.get("attorney_in_fact") if isinstance(parsed.get("attorney_in_fact"), dict) else {}
         )
         return {
+            "run_id": self.run_id,
             "timestamp_utc": self.timestamp_utc,
             "Filename": self.filename,
             "model": self.model,
@@ -118,12 +126,16 @@ class ModelBenchmarkResult:
             "completion_tokens": self.completion_tokens,
             "principal.value": principal.get("value"),
             "principal.is_handwritten": principal.get("is_handwritten"),
+            "principal.low_ocr_score": principal.get("_low_OCR_score", False),
             "attorney_in_fact.value": attorney.get("value"),
             "attorney_in_fact.is_handwritten": attorney.get("is_handwritten"),
+            "attorney_in_fact.low_ocr_score": attorney.get("_low_OCR_score", False),
             "parsed_output": json.dumps(parsed, ensure_ascii=False, default=str)
             if parsed
             else None,
             "error": self.error,
+            "error_type": self.error_type,
+            "flag_cloud_escalation": self.flag_cloud_escalation,
         }
 
 
@@ -146,6 +158,7 @@ class CloudModelRouter:
         temperature: float = 0.0,
         results_path: str | Path | None = None,
         max_concurrency: int = 3,
+        run_id: str | None = None,
     ) -> None:
         self.models: tuple[str, ...] = tuple(models) if models else self.DEFAULT_MODELS
         self.timeout_s = timeout_s
@@ -155,14 +168,26 @@ class CloudModelRouter:
         self.results_path = Path(results_path) if results_path else DEFAULT_RESULTS_PATH
         self._semaphore = asyncio.Semaphore(max_concurrency)
         self._write_lock = asyncio.Lock()
+        self.run_id = run_id or datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
 
         litellm.drop_params = True
         litellm.suppress_debug_info = True
 
         self._json_schema: dict[str, Any] = Form939Output.model_json_schema()
 
+    @log_execution_time_async
     async def extract(self, filename: str, hebrew_text: str, persist: bool = True) -> pd.DataFrame:
-        """Send mock Hebrew Form 939 text to all configured models concurrently."""
+        """
+        Send mock Hebrew Form 939 text to all configured models concurrently.
+        
+        Args:
+            filename (str): The name of the file being processed.
+            hebrew_text (str): The raw Hebrew text to extract from.
+            persist (bool): Whether to append the result to the CSV immediately.
+            
+        Returns:
+            pd.DataFrame: A DataFrame containing the extraction results.
+        """
         if not hebrew_text or not hebrew_text.strip():
             raise ValueError("hebrew_text must be a non-empty Unicode string")
 
@@ -173,7 +198,19 @@ class CloudModelRouter:
             await self._persist(frame)
         return frame
 
+    @log_execution_time_async
     async def _invoke(self, model: str, filename: str, hebrew_text: str) -> ModelBenchmarkResult:
+        """
+        Invoke a specific model for extraction.
+        
+        Args:
+            model (str): The model identifier.
+            filename (str): The name of the file.
+            hebrew_text (str): The text to process.
+            
+        Returns:
+            ModelBenchmarkResult: The result of the extraction.
+        """
         litellm_model = LITELLM_MODEL_MAP.get(model, model)
         started = time.perf_counter()
         timestamp = datetime.now(timezone.utc).isoformat()
@@ -185,6 +222,7 @@ class CloudModelRouter:
                 latency_ms = (time.perf_counter() - started) * 1000
                 logger.exception("Model %s failed", model)
                 return ModelBenchmarkResult(
+                    run_id=self.run_id,
                     filename=filename,
                     model=model,
                     litellm_model=litellm_model,
@@ -193,6 +231,7 @@ class CloudModelRouter:
                     parsed_output=None,
                     success=False,
                     error=f"{type(exc).__name__}: {exc}",
+                    error_type=type(exc).__name__,
                     prompt_tokens=None,
                     completion_tokens=None,
                     timestamp_utc=timestamp,
@@ -208,13 +247,31 @@ class CloudModelRouter:
             parsed = self._parse_response(response)
         except ValidationError as exc:
             logger.warning(
-                "Schema/Luhn validation failed for %s; nulling invalid ID fields (no LLM retry). %s",
+                "Schema/Luhn validation failed for %s; flagging for cloud escalation. %s",
                 model,
                 exc,
             )
             try:
                 payload = self._loads_json(self._message_content(response))
                 parsed = self._null_invalid_id_roles(payload)
+                # Successful recovery but flagged
+                latency_ms = (time.perf_counter() - started) * 1000
+                return ModelBenchmarkResult(
+                    run_id=self.run_id,
+                    filename=filename,
+                    model=model,
+                    litellm_model=litellm_model,
+                    latency_ms=latency_ms,
+                    cost_usd=0.0 if cost is None and "ollama" in litellm_model else cost,
+                    parsed_output=parsed.model_dump_utf8(),
+                    success=True,
+                    error=f"ValidationError: {exc}",
+                    error_type="LuhnValidationError",
+                    flag_cloud_escalation=True,
+                    prompt_tokens=prompt_tokens,
+                    completion_tokens=completion_tokens,
+                    timestamp_utc=timestamp,
+                )
             except (ValidationError, ValueError, json.JSONDecodeError, Exception) as drop_exc:
                 return self._failed_result(
                     filename,
@@ -243,6 +300,7 @@ class CloudModelRouter:
         latency_ms = (time.perf_counter() - started) * 1000
         payload = parsed.model_dump_utf8()
         return ModelBenchmarkResult(
+            run_id=self.run_id,
             filename=filename,
             model=model,
             litellm_model=litellm_model,
@@ -251,12 +309,23 @@ class CloudModelRouter:
             parsed_output=payload,
             success=True,
             error=None,
+            error_type=None,
             prompt_tokens=prompt_tokens,
             completion_tokens=completion_tokens,
             timestamp_utc=timestamp,
         )
 
     async def _complete(self, litellm_model: str, hebrew_text: str) -> Any:
+        """
+        Execute the completion request with retries and fallback modes.
+        
+        Args:
+            litellm_model (str): The LiteLLM model identifier.
+            hebrew_text (str): The input text.
+            
+        Returns:
+            Any: The LiteLLM response object.
+        """
         messages = self._build_messages(hebrew_text)
         modes = self._json_modes_for(litellm_model)
         last_error: Exception | None = None
@@ -306,6 +375,15 @@ class CloudModelRouter:
         raise last_error
 
     def _json_modes_for(self, litellm_model: str) -> tuple[str, ...]:
+        """
+        Determine the supported JSON modes for a given model.
+        
+        Args:
+            litellm_model (str): The model identifier.
+            
+        Returns:
+            tuple[str, ...]: A tuple of supported modes (e.g., 'schema', 'json', 'prompt').
+        """
         # gemma4 via Ollama rejects `format` (json/json_schema): "failed to load model vocabulary required for format"
         if "ollama" in litellm_model.lower():
             return ("prompt",)
@@ -318,6 +396,17 @@ class CloudModelRouter:
         *,
         mode: str,
     ) -> Any:
+        """
+        Make a single completion call to LiteLLM.
+        
+        Args:
+            litellm_model (str): The model identifier.
+            messages (list[dict[str, str]]): The conversation messages.
+            mode (str): The JSON mode to use.
+            
+        Returns:
+            Any: The LiteLLM response object.
+        """
         kwargs: dict[str, Any] = {
             "model": litellm_model,
             "messages": messages,
@@ -337,6 +426,15 @@ class CloudModelRouter:
 
     @staticmethod
     def _null_invalid_id_roles(payload: dict[str, Any]) -> Form939Output:
+        """
+        Nullify ID fields that fail Luhn validation without retrying the LLM.
+        
+        Args:
+            payload (dict[str, Any]): The parsed JSON payload.
+            
+        Returns:
+            Form939Output: The validated Pydantic model with invalid IDs set to None.
+        """
         cleaned = dict(payload)
         for role in ("principal", "attorney_in_fact"):
             leaf = cleaned.get(role)
@@ -361,8 +459,12 @@ class CloudModelRouter:
         completion_tokens: int | None,
         exc: Exception,
     ) -> ModelBenchmarkResult:
+        """
+        Create a failed benchmark result record.
+        """
         logger.warning("Repair failure for %s: %s", model, exc)
         return ModelBenchmarkResult(
+            run_id=self.run_id,
             filename=filename,
             model=model,
             litellm_model=litellm_model,
@@ -371,12 +473,23 @@ class CloudModelRouter:
             parsed_output=None,
             success=False,
             error=f"{type(exc).__name__}: {exc}",
+            error_type=type(exc).__name__,
+            flag_cloud_escalation=True,  # Failed models also flag for escalation
             prompt_tokens=prompt_tokens,
             completion_tokens=completion_tokens,
             timestamp_utc=timestamp,
         )
 
     def _build_messages(self, hebrew_text: str) -> list[dict[str, str]]:
+        """
+        Build the message payload for the LLM.
+        
+        Args:
+            hebrew_text (str): The input text.
+            
+        Returns:
+            list[dict[str, str]]: The messages list.
+        """
         system = (
             f"{SYSTEM_PROMPT}\n"
             f"Required JSON shape:\n{COMPACT_SCHEMA_HINT}\n"
@@ -388,12 +501,30 @@ class CloudModelRouter:
         ]
 
     def _parse_response(self, response: Any) -> Form939Output:
+        """
+        Parse and validate the LLM response.
+        
+        Args:
+            response (Any): The LiteLLM response.
+            
+        Returns:
+            Form939Output: The validated Pydantic model.
+        """
         content = self._message_content(response)
         payload = self._loads_json(content)
         return Form939Output.model_validate(payload)
 
     @staticmethod
     def _message_content(response: Any) -> str:
+        """
+        Extract the text content from a LiteLLM response.
+        
+        Args:
+            response (Any): The LiteLLM response.
+            
+        Returns:
+            str: The extracted text content.
+        """
         try:
             content = response.choices[0].message.content
         except (AttributeError, IndexError, TypeError) as exc:
@@ -417,6 +548,15 @@ class CloudModelRouter:
 
     @staticmethod
     def _loads_json(raw: str) -> dict[str, Any]:
+        """
+        Robustly load JSON from a string, handling markdown fences and trailing commas.
+        
+        Args:
+            raw (str): The raw string output from the LLM.
+            
+        Returns:
+            dict[str, Any]: The parsed JSON dictionary.
+        """
         text = raw.strip()
         fenced = _JSON_FENCE_RE.search(text)
         if fenced:
@@ -439,6 +579,16 @@ class CloudModelRouter:
 
     @staticmethod
     def _safe_cost(response: Any, litellm_model: str) -> float | None:
+        """
+        Safely extract the cost from a LiteLLM response.
+        
+        Args:
+            response (Any): The LiteLLM response.
+            litellm_model (str): The model identifier.
+            
+        Returns:
+            float | None: The cost in USD, or None if unavailable.
+        """
         hidden = getattr(response, "_hidden_params", None) or {}
         if isinstance(hidden, dict) and hidden.get("response_cost") is not None:
             try:
@@ -453,6 +603,7 @@ class CloudModelRouter:
 
     @staticmethod
     def _is_schema_unsupported(exc: Exception) -> bool:
+        """Check if the exception indicates structured output is unsupported."""
         message = str(exc).lower()
         needles = (
             "response_format",
@@ -466,6 +617,7 @@ class CloudModelRouter:
 
     @staticmethod
     def _is_format_unsupported(exc: Exception) -> bool:
+        """Check if the exception indicates JSON format is unsupported."""
         message = str(exc).lower()
         return any(
             needle in message
@@ -479,10 +631,12 @@ class CloudModelRouter:
         )
 
     async def _persist(self, frame: pd.DataFrame) -> None:
+        """Asynchronously write a DataFrame to the CSV file."""
         async with self._write_lock:
             await asyncio.to_thread(self._write_csv, frame)
 
     def _write_csv(self, frame: pd.DataFrame) -> None:
+        """Synchronously append a DataFrame to the CSV file, handling schema changes."""
         self.results_path.parent.mkdir(parents=True, exist_ok=True)
         if self.results_path.exists() and self.results_path.stat().st_size > 0:
             existing_header = self.results_path.read_text(encoding="utf-8-sig").splitlines()[0]
@@ -493,13 +647,20 @@ class CloudModelRouter:
         write_header = not self.results_path.exists() or self.results_path.stat().st_size == 0
         export = frame.copy()
         for column in (
+            "run_id",
             "Filename",
             "principal.value",
             "attorney_in_fact.value",
             "parsed_output",
+            "error",
+            "error_type",
+            "flag_cloud_escalation",
         ):
             if column in export.columns:
                 export[column] = export[column].astype(object).where(export[column].notna(), None)
+        # TODO(Future): Consider adding a 'run_id' or 'benchmark_session' column to the DataFrame 
+        # before appending here. This will prevent data contamination from previous debug runs 
+        # when analyzing the CSV later.
         export.to_csv(
             self.results_path,
             mode="a",

@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+import tqdm.asyncio
 from dotenv import load_dotenv
 
 from compare import write_compare_report
@@ -70,15 +71,35 @@ async def main() -> None:
     parser.add_argument("--models", nargs="+", default=LOCAL_MODELS, help="List of models to evaluate (space separated)")
     parser.add_argument("--input-dir", type=str, help="Directory containing .txt files to process")
     parser.add_argument("--gt-csv", type=str, default=str(DEFAULT_SYNTHETIC_GT), help="Path to ground truth CSV")
+    parser.add_argument("--dry-run", action="store_true", help="Run schema validation only without calling LLMs (useful for testing ground truth)")
     args = parser.parse_args()
 
     models = args.models
+    
+    if args.dry_run:
+        logging.info("DRY RUN MODE: Skipping LLM calls. Validating ground truth schema only.")
+        gold_by_stem = load_ground_truth_outputs(Path(args.gt_csv))
+        for stem, gold in gold_by_stem.items():
+            try:
+                # Force validation through the schema
+                Form939Output.model_validate(gold.model_dump(by_alias=True))
+            except Exception as e:
+                logging.error(f"Validation failed for {stem}: {e}")
+        logging.info("Dry run complete.")
+        sys.exit(0)
+    
+    # Auto-scale concurrency: Local models need sequential processing to prevent VRAM thrashing.
+    # Cloud models can handle high concurrency.
+    is_local = any("ollama" in m.lower() for m in models)
+    concurrency = 1 if is_local else 10
+    logging.info(f"Auto-configured concurrency to {concurrency} (Local models detected: {is_local})")
+
     router = CloudModelRouter(
         models=models,
         timeout_s=300.0,
         max_retries=2,
         temperature=0.0,
-        max_concurrency=1,
+        max_concurrency=concurrency,
     )
 
     inputs: dict[str, str] = {}
@@ -104,7 +125,9 @@ async def main() -> None:
         return await router.extract(filename, text, persist=False)
 
     tasks = [process_file(filename, text) for filename, text in inputs.items()]
-    all_frames = await asyncio.gather(*tasks)
+    
+    # Add a professional progress bar for the extraction process
+    all_frames = await tqdm.asyncio.tqdm.gather(*tasks, desc="Extracting IDP Data")
 
     final_frame = pd.concat(all_frames, ignore_index=True) if all_frames else pd.DataFrame()
 

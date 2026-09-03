@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  form939-benchmark:
+    build: .
+    container_name: form939-benchmark
+    volumes:
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    # To run cloud models instead of local, uncomment the line below:
+    # command: ["python", "src/main.py", "--input-dir", "data/synthetic_inputs", "--gt-csv", "data/gold/synthetic_ground_truth.csv", "--models", "gemini/gemini-1.5-pro", "anthropic/claude-3-5-sonnet-20240620"]

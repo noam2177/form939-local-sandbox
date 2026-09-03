@@ -11,12 +11,29 @@ LOW_OCR_SCORE_JSON_KEY = "_low_OCR_score"
 
 
 def clean_field_value(value: Optional[str]) -> Optional[str]:
+    """
+    Extract only digits from a given string.
+    
+    Args:
+        value (Optional[str]): The raw string to clean.
+        
+    Returns:
+        Optional[str]: A string containing only digits, or None if no digits are found.
+    """
     digits = re.sub(r"\D", "", value or "")
     return digits if digits else None
 
 
 def is_valid_israeli_id(digits: Optional[str]) -> bool:
-    """Israeli ID checksum: 9 digits, weights 1,2,1,2..., values >=10 collapse by -9."""
+    """
+    Validate an Israeli ID number using the Luhn algorithm.
+    
+    Args:
+        digits (Optional[str]): The 9-digit ID string to validate.
+        
+    Returns:
+        bool: True if the ID is valid according to the Luhn checksum, False otherwise.
+    """
     if digits is None or len(digits) != ID_DIGIT_LENGTH or not digits.isdigit():
         return False
     total = 0
@@ -27,7 +44,17 @@ def is_valid_israeli_id(digits: Optional[str]) -> bool:
 
 
 def normalize_valid_israeli_id(digits: Optional[str]) -> Optional[str]:
-    """Return a 9-digit Israeli ID when valid (8-digit values are left-padded with one zero)."""
+    """
+    Normalize and validate an Israeli ID.
+    
+    Pads 8-digit IDs with a leading zero and validates the result using the Luhn algorithm.
+    
+    Args:
+        digits (Optional[str]): The raw ID string.
+        
+    Returns:
+        Optional[str]: The normalized 9-digit valid ID, or None if invalid.
+    """
     cleaned_digits = clean_field_value(digits)
     if not cleaned_digits:
         return None
@@ -39,7 +66,15 @@ def normalize_valid_israeli_id(digits: Optional[str]) -> Optional[str]:
 
 
 def apply_israeli_id_luhn_gate_to_element(element: Optional[dict[str, Any]]) -> Optional[dict[str, Any]]:
-    """Normalize element value through the Luhn gate; drop the element when checksum fails."""
+    """
+    Apply Luhn validation to a dictionary element containing an ID value.
+    
+    Args:
+        element (Optional[dict[str, Any]]): The dictionary containing a 'value' key.
+        
+    Returns:
+        Optional[dict[str, Any]]: The element with a normalized ID, or None if validation fails.
+    """
     if element is None:
         return None
     normalized_id = normalize_valid_israeli_id(element.get("value"))
@@ -126,6 +161,12 @@ class Form939Output(BaseModel):
         return value
 
     def model_dump_utf8(self) -> dict[str, Any]:
+        """
+        Dump the model to a dictionary with UTF-8 support and alias serialization.
+        
+        Returns:
+            dict[str, Any]: The serialized model data.
+        """
         return self.model_dump(mode="json", by_alias=True)
 
 
