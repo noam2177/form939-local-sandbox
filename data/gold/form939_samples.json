@@ -1,0 +1,28 @@
+{
+  "compare_fields": [
+    "principal.value",
+    "principal.is_handwritten",
+    "attorney_in_fact.value",
+    "attorney_in_fact.is_handwritten"
+  ],
+  "samples": [
+    {
+      "id": "two_role_ids_luhn",
+      "document": "MESSY_HEBREW_FORM939",
+      "gold": {
+        "principal": {
+          "value": "516190899",
+          "is_handwritten": false,
+          "_type": "text",
+          "_low_OCR_score": false
+        },
+        "attorney_in_fact": {
+          "value": "024481863",
+          "is_handwritten": true,
+          "_type": "text",
+          "_low_OCR_score": false
+        }
+      }
+    }
+  ]
+}
