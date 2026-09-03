@@ -1,21 +1,14 @@
-@echo off
-cd /d "%~dp0"
-echo ========================================
-echo Form939 Weekend SUPERVISOR (recommended)
-echo ========================================
-echo.
-echo This watchdog will:
-echo   - Monitor Ollama health every 60s
-echo   - Run benchmark loops (qwen + llama + gemma4)
-echo   - Restart on crash or stall (10 min no progress)
-echo   - Publish reports after each iteration
-echo   - Save summary to logs\weekend_final_summary.txt
-echo.
-echo Logs:      logs\supervisor.log
-echo Heartbeat: logs\supervisor_heartbeat.txt
-echo State:     logs\supervisor_state.json
-echo.
-echo TIP: Stop any running run.py first (Ctrl+C in its window).
-echo.
-python scripts\supervisor\cli.py --target-iterations 0 --stall-timeout 600
-pause
+@echo off
+cd /d "%~dp0"
+echo ========================================
+echo Form939 Weekend SUPERVISOR (optimized)
+echo ========================================
+echo.
+echo Pass 1: qwen + llama + gemma4  (60 calls - model comparison)
+echo Pass 2-3: qwen + llama only     (40 calls each - consistency)
+echo Stall timeout: 30 min (Gemma-safe)  ^|  Resume on restart
+echo ETA: ~1.5 hours remaining from restart
+echo.
+python scripts\supervisor\cli.py --target-iterations 3 --sleep-between-loops 120 --stall-timeout 1800
+if %ERRORLEVEL% EQU 0 (echo [DONE]) else (echo [ERROR] code %ERRORLEVEL%)
+pause

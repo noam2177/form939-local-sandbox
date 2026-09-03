@@ -9,7 +9,14 @@ _SUPERVISOR_DIR = Path(__file__).resolve().parent
 if str(_SUPERVISOR_DIR) not in sys.path:
     sys.path.insert(0, str(_SUPERVISOR_DIR))
 
-from config import DEFAULT_MODELS, SupervisorConfig
+from config import (
+    DEFAULT_HEALTH_INTERVAL_S,
+    DEFAULT_MODELS,
+    DEFAULT_SLEEP_BETWEEN_PASSES_S,
+    DEFAULT_STALL_TIMEOUT_S,
+    DEFAULT_TARGET_ITERATIONS,
+    SupervisorConfig,
+)
 from watchdog import WeekendSupervisor
 
 
@@ -20,26 +27,27 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--target-iterations",
         type=int,
-        default=0,
-        help="Stop after N full benchmark iterations (0 = run until Ctrl+C)",
+        default=DEFAULT_TARGET_ITERATIONS,
+        choices=[DEFAULT_TARGET_ITERATIONS],
+        help=f"Must be exactly {DEFAULT_TARGET_ITERATIONS} passes (weekend plan)",
     )
     parser.add_argument(
         "--health-interval",
         type=int,
-        default=60,
-        help="Seconds between supervisor health checks",
+        default=DEFAULT_HEALTH_INTERVAL_S,
+        help="Seconds between health checks while a pass is running",
     )
     parser.add_argument(
         "--stall-timeout",
         type=int,
-        default=600,
+        default=DEFAULT_STALL_TIMEOUT_S,
         help="Restart benchmark if no CSV progress for this many seconds",
     )
     parser.add_argument(
         "--sleep-between-loops",
         type=int,
-        default=300,
-        help="Pause between benchmark iterations (passed to run.py)",
+        default=DEFAULT_SLEEP_BETWEEN_PASSES_S,
+        help="Cooldown seconds between passes",
     )
     parser.add_argument(
         "--models",
@@ -57,7 +65,7 @@ def main(argv: list[str] | None = None) -> int:
         target_iterations=args.target_iterations,
         health_interval_s=args.health_interval,
         stall_timeout_s=args.stall_timeout,
-        sleep_between_loops_s=args.sleep_between_loops,
+        pass_rest_s=args.sleep_between_loops,
     )
     return WeekendSupervisor(config).run()
 
