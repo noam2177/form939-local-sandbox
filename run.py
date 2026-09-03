@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 from dotenv import load_dotenv
 from router import CloudModelRouter
 
-LOCAL_MODELS = ["ollama/qwen2.5:7b", "ollama/glm4"]  # Qwen 2.5 + GLM (glm4 tag until GLM-5.3 pulled)
+LOCAL_MODELS = ["ollama/qwen2.5:7b", "ollama/llama3.1"]  # glm4 not pulled; add when available
 INPUT_DIR = Path("data/synthetic_inputs")
 LOG_DIR = Path("logs")
 

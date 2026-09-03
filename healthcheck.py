@@ -52,7 +52,7 @@ async def check_ollama_connection():
                 model="ollama/llama3.1", 
                 messages=[{"role": "user", "content": "hi"}],
                 max_tokens=1,
-                timeout=2.0
+                timeout=15.0
             )
             logger.info("Ollama is running and responding.")
             return True

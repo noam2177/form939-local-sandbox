@@ -1,0 +1,4 @@
+Model	Resolution	Accuracy (%)	Latency (s)	Total Cost ($)	Calls	CPVE
+ollama/gemma4:e4b	20 calls	75.00	102.045	0.000000	20	0.000000
+ollama/llama3.1	20 calls	77.50	47.274	0.000000	20	0.000000
+ollama/qwen2.5:7b	20 calls	78.75	19.243	0.000000	20	0.000000

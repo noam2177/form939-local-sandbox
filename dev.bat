@@ -29,8 +29,22 @@ if "%1"=="weekend" (
     goto :eof
 )
 
+if "%1"=="publish" (
+    echo Publishing benchmark metrics (dry-run)...
+    python scripts\publisher\cli.py --input-dir logs
+    goto :eof
+)
+
+if "%1"=="publish-write" (
+    echo Publishing benchmark metrics to logs\published...
+    python scripts\publisher\cli.py --input-dir logs --output-dir logs\published --write
+    goto :eof
+)
+
 echo Usage:
-echo   dev.bat test    - Run pytest suite
-echo   dev.bat health  - Run environment health check
-echo   dev.bat weekend - Start autonomous weekend benchmark loop
-echo   dev.bat clean   - Remove Python cache files
+echo   dev.bat test         - Run pytest suite
+echo   dev.bat health       - Run environment health check
+echo   dev.bat weekend      - Start autonomous weekend benchmark loop
+echo   dev.bat publish      - Preview benchmark report (dry-run)
+echo   dev.bat publish-write - Write benchmark report to logs\published
+echo   dev.bat clean        - Remove Python cache files
