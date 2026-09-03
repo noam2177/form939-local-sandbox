@@ -171,6 +171,24 @@ async def test_invalid_luhn_id_is_nulled_without_llm_retry(monkeypatch, results_
     assert frame.iloc[0]["attorney_in_fact.value"] == "024481863"
 
 
+@pytest.mark.asyncio
+async def test_luhn_failure_flags_cloud_escalation(monkeypatch, results_path) -> None:
+    invalid = {
+        "principal": {"value": "123456789", "is_handwritten": False},
+        "attorney_in_fact": {"value": "024481863", "is_handwritten": True},
+    }
+
+    async def fake_complete(*_args: Any, **_kwargs: Any) -> SimpleNamespace:
+        return _fake_response(json.dumps(invalid, ensure_ascii=False))
+
+    monkeypatch.setattr("router.acompletion", fake_complete)
+    router = CloudModelRouter(models=["ollama/gemma4:e4b"], results_path=results_path, max_retries=0)
+    frame = await router.extract("test_file", "principal 123456789 attorney 24481863")
+    assert bool(frame.iloc[0]["flag_cloud_escalation"]) is True
+    assert frame.iloc[0]["cloud_escalation_target"] == "anthropic/claude-3-5-sonnet-20240620"
+    assert frame.iloc[0]["error_type"] == "LuhnValidationError"
+
+
 def test_format_unsupported_detection() -> None:
     err = RuntimeError('{"error":"failed to load model vocabulary required for format"}')
     assert CloudModelRouter._is_format_unsupported(err) is True

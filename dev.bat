@@ -24,7 +24,13 @@ if "%1"=="clean" (
     goto :eof
 )
 
+if "%1"=="weekend" (
+    call weekend.bat
+    goto :eof
+)
+
 echo Usage:
-echo   dev.bat test   - Run pytest suite
-echo   dev.bat health - Run environment health check
-echo   dev.bat clean  - Remove Python cache files
+echo   dev.bat test    - Run pytest suite
+echo   dev.bat health  - Run environment health check
+echo   dev.bat weekend - Start autonomous weekend benchmark loop
+echo   dev.bat clean   - Remove Python cache files

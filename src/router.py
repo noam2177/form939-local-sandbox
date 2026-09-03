@@ -49,12 +49,19 @@ RETRYABLE = (
     InternalServerError,
 )
 
+# PoC: Monday cloud escalation target when local + Luhn gate fails (no API call here).
+CLOUD_ESCALATION_MODEL = "anthropic/claude-3-5-sonnet-20240620"
+
 LITELLM_MODEL_MAP: dict[str, str] = {
     "gemini-1.5-pro": "gemini/gemini-1.5-pro",
     "deepseek-chat": "deepseek/deepseek-chat",
-    "claude-3-5-sonnet-20240620": "anthropic/claude-3-5-sonnet-20240620",
+    "claude-3-5-sonnet-20240620": CLOUD_ESCALATION_MODEL,
     "ollama/gemma4:e4b": "ollama/gemma4:e4b",
     "gemma4:e4b": "ollama/gemma4:e4b",
+    "ollama/qwen2.5:7b": "ollama/qwen2.5:7b",
+    "qwen2.5:7b": "ollama/qwen2.5:7b",
+    "glm4": "ollama/glm4",  # alias for GLM family; pull glm4 or glm-5.3 tag when available
+    "ollama/glm4": "ollama/glm4",
 }
 
 SYSTEM_PROMPT = (
@@ -136,6 +143,7 @@ class ModelBenchmarkResult:
             "error": self.error,
             "error_type": self.error_type,
             "flag_cloud_escalation": self.flag_cloud_escalation,
+            "cloud_escalation_target": CLOUD_ESCALATION_MODEL if self.flag_cloud_escalation else None,
         }
 
 
@@ -655,6 +663,7 @@ class CloudModelRouter:
             "error",
             "error_type",
             "flag_cloud_escalation",
+            "cloud_escalation_target",
         ):
             if column in export.columns:
                 export[column] = export[column].astype(object).where(export[column].notna(), None)

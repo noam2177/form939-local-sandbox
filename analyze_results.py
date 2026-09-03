@@ -18,7 +18,7 @@ def main():
     else:
         print("--- Benchmark Analysis (All Data) ---")
         
-    print(f"{'Model':<25} | {'Success %':<10} | {'Avg Latency (s)':<15} | {'Luhn Error %':<12}")
+    print(f"{'Model':<25} | {'Success %':<10} | {'Avg Latency (s)':<15} | {'Luhn Error %':<12} | {'Cloud Esc %':<10}")
     print("-" * 70)
     
     for model in df['model'].unique():
@@ -31,8 +31,9 @@ def main():
         luhn_errors = m_df['principal.value'].isna().sum() + m_df['attorney_in_fact.value'].isna().sum()
         total_id_fields = len(m_df) * 2
         luhn_error_pct = (luhn_errors / total_id_fields) * 100
+        esc_pct = (m_df["flag_cloud_escalation"].sum() / len(m_df)) * 100 if "flag_cloud_escalation" in m_df.columns else 0.0
         
-        print(f"{model:<25} | {success_pct:>8.1f}% | {avg_latency_s:>13.2f}s | {luhn_error_pct:>11.1f}%")
+        print(f"{model:<25} | {success_pct:>8.1f}% | {avg_latency_s:>13.2f}s | {luhn_error_pct:>11.1f}% | {esc_pct:>8.1f}%")
 
 if __name__ == "__main__":
     main()
