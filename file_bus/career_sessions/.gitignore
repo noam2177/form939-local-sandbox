@@ -1,3 +1,4 @@
-﻿file_bus/career_sessions/dv_chrome_profile/
-file_bus/career_sessions/*.pdf
-file_bus/career_sessions/dv_session.json
+﻿dv_chrome_profile/
+*.pdf
+dv_session.json
+.env

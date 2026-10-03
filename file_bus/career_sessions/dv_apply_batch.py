@@ -83,10 +83,21 @@ def _apply_one(page: Any, url: str, answers: dict[str, str], title: str) -> str:
         return "no_apply"
     btn.first.click(timeout=10_000)
     page.wait_for_timeout(2000)
+    auto_ids = {
+        "Apply Manually": "applyManually",
+        "Autofill with Resume": "autofillWithResume",
+        "Use My Last Application": "useMyLastApplication",
+    }
     for choice in ("Apply Manually", "Autofill with Resume", "Use My Last Application"):
-        pick = page.get_by_role("button", name=choice)
+        pick = page.locator(f'[data-automation-id="{auto_ids[choice]}"]')
+        if not pick.count():
+            pick = page.get_by_role("button", name=choice)
         if pick.count():
-            pick.first.click(timeout=8_000)
+            href = pick.first.get_attribute("href")
+            if href and href.startswith("http"):
+                page.goto(href, wait_until="domcontentloaded", timeout=60_000)
+            else:
+                pick.first.click(timeout=15_000, force=True)
             page.wait_for_timeout(2500)
             break
     pwd = os.environ.get("WORKDAY_PASSWORD", "").strip()
@@ -165,7 +176,16 @@ def main() -> int:
     hunt = json.loads(HUNT.read_text(encoding="utf-8"))
     # Priority: Tel Aviv data roles first
     rows = [r for r in hunt.get("jobs") or [] if isinstance(r, dict) and r.get("action") == "apply"]
-    rows.sort(key=lambda r: (0 if "data scientist" in str(r.get("title", "")).lower() else 1, -int(r.get("score") or 0)))
+    def _prio(r: dict) -> tuple:
+        t = str(r.get("title", "")).lower()
+        u = str(r.get("url", "")).lower()
+        if "tel-aviv" in u and "data scientist" in t and "sr" not in t[:3]:
+            return (0, -int(r.get("score") or 0))
+        if "tel-aviv" in u:
+            return (1, -int(r.get("score") or 0))
+        return (2, -int(r.get("score") or 0))
+
+    rows.sort(key=_prio)
     log: list[dict] = []
     with sync_playwright() as p:
         ctx, page = _chrome_launch(p)
