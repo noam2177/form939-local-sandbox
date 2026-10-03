@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "projects": [
+    {
+      "project_id": "bloomgrid",
+      "title": "bloomgrid",
+      "assigned_agent": "game_dev_agent",
+      "pipeline": "google_play_closed_testing",
+      "updated_utc": "2026-09-29T23:55:45.475234+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\game-c-bloomgrid",
+      "stage": "גבישים על הלוח. עדיין לא בחנות.",
+      "next": "12 בודקים בבדיקה סגורה, ואז 14 יום."
+    },
+    {
+      "project_id": "rsvp",
+      "title": "מי מגיע (Mi-Magia-VIP)",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "product_status",
+      "updated_utc": "2026-09-29T23:55:45.488241+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\danielntomerafter-main",
+      "stage": "ריפו noam2177/Mi-Magia-VIP. main=wedding-v1 (החתונה), product-v2=מוצר+מיתוג, שניהם ב-GitHub. mi-magia-vip-legacy = ישן, קריאה בלבד.",
+      "next": "Phase 1: ענף unify מ-main + שכבת המוצר כתוספת; השוואה ויזואלית של /e/daniel-tomer; סיבוב מפתחות Supabase."
+    },
+    {
+      "project_id": "openclaw_hub",
+      "title": "מנהל עבודה OpenClaw",
+      "assigned_agent": "chief_architect",
+      "pipeline": "dashboard",
+      "updated_utc": "2026-10-03T15:56:56.999918+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\principal-architect-hub",
+      "stage": "דשבורד :8788; תת-תחום engineering ב-form939-agent-hub/engineering/.",
+      "next": "ענף project/system-engineering; openclaw_hub/engineering/NEXT_STEPS.md; career-hunt"
+    },
+    {
+      "project_id": "openclaw_shell",
+      "title": "מעטפת OpenClaw (חלון Cursor)",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "workspace_zone",
+      "updated_utc": "2026-10-03T15:57:19.295370+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\form939-agent-hub",
+      "stage": "אזור Cursor; כלים ב-openclaw_hub/engineering.",
+      "next": "project/system-engineering; openclaw_shell/NEXT_STEPS.md"
+    },
+    {
+      "project_id": "life_widget",
+      "title": "ווידג'ט משימות",
+      "assigned_agent": "chief_architect",
+      "pipeline": "hub_status",
+      "updated_utc": "2026-09-29T23:55:45.510758+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\principal-architect-hub",
+      "stage": "משימות אישיות בטלגרם ובווידג'ט. לא יוזמה A.",
+      "next": "שיפור רק אם יש משפט שימושי חסר."
+    },
+    {
+      "project_id": "form_autofill",
+      "title": "מילוי טפסים",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "form_detect_interview_fill",
+      "updated_utc": "2026-09-29T23:55:45.522271+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\form939-local-sandbox",
+      "stage": "זיהוי קובץ סינתטי נעשה. ראיון שדות.",
+      "next": "המשך ראיון שדות על docx דמה. בלי תיקיות משרד."
+    },
+    {
+      "project_id": "hadash_gate",
+      "title": "שער סוג מסמך",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "home_gate_measure_compare",
+      "updated_utc": "2026-09-29T23:55:45.535326+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\form939-local-sandbox",
+      "stage": "סקירת ארכיטקט. מדידה על דמה.",
+      "next": "מדידה חוזרת על דמה. לא מממשים src משרד."
+    },
+    {
+      "project_id": "ds_portfolio",
+      "title": "תיק עבודות",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_ladder",
+      "updated_utc": "2026-09-29T23:55:45.550327+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\portfolio",
+      "stage": "חמישה ריפו קטנים עלו ל-noam2177.",
+      "next": "שלב runnable לישיבה; בלי קורפוס משרד."
+    },
+    {
+      "project_id": "he_segment",
+      "title": "פיצול תחיליות",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_ladder",
+      "updated_utc": "2026-09-29T23:55:45.561334+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\he-segment",
+      "stage": "מבחן קפוא 64/36/36.",
+      "next": "להגדיל רק train בלי לרדת מ-64, אחרי אישור תקציב."
+    },
+    {
+      "project_id": "burrow-sniper",
+      "title": "בור-צלף",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.573227+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\sniper-burrow",
+      "stage": "עזרה H/? + 12 רובים + בדיקות",
+      "next": "B3 שלב היסטורי"
+    },
+    {
+      "project_id": "hybrid-cloud-bus",
+      "title": "אוטובוס היברידי",
+      "assigned_agent": "chief_architect",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.585845+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\principal-architect-hub",
+      "stage": "dry run מקומי עבר: A נדחה, B נלקח מיד, C נלקח ב-60 שניות. לא נפרס.",
+      "next": "כותב Drive שנבדק, ואז image מ-cloud_node/Dockerfile. בלי gcloud עד אז."
+    },
+    {
+      "project_id": "personal-site",
+      "title": "אתר אישי",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.596842+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\noam2177.github.io",
+      "stage": "דף מעוצב מקורות החיים הכלליים, על GitHub Pages.",
+      "next": "רק אם המפעיל מבקש להוריד טלפון או דואל מהדף הציבורי."
+    },
+    {
+      "project_id": "masnenet",
+      "title": "מסננת",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.608848+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\masnenet",
+      "stage": "דיל כתוב. זהב עדיין לא נעול.",
+      "next": "40 זוגות קפואים, עם סוג העסקה ושיוך קודם."
+    },
+    {
+      "project_id": "finance-router",
+      "title": "סוכן ניתוב פיננסי",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.621925+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\finance-router",
+      "stage": "מוגדר בתיק. עדיין בלי ריפו.",
+      "next": "עותק קפוא של Financial PhraseBank, מסווג זול, וטבלת דיוק מול אחוז השורות שנשארות מקומיות."
+    },
+    {
+      "project_id": "job-hub-cloud",
+      "title": "job-hub-cloud",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-30T12:10:05.420790+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\job-hub-cloud",
+      "stage": "קוד G0-P5 ב-GitHub. 105 בדיקות. אין ענן.",
+      "next": "נועם: ספירת jobs.json, D-1/D-2, תקציב, ואז BigQuery."
+    },
+    {
+      "project_id": "bot-task-manger",
+      "title": "Bot_TaskManger · בוט משימות",
+      "assigned_agent": "chief_architect",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.649691+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\principal-architect-hub\\hub\\telegram_life.py",
+      "stage": "טלגרם: תפריט ממוספר, קליטה חופשית של כמה משימות, עריכה מלאה, תזכורות מתוזמנות, מייל דחוף עם הזמנה ליומן",
+      "next": "להתקין faster-whisper לתמלול הקלטות; לבדוק מייל דחוף ראשון מול Gmail"
+    },
+    {
+      "project_id": "he-rag",
+      "title": "he-rag",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.664731+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\form939-local-sandbox\\portfolio\\he-rag",
+      "stage": "שליפה לקסיקלית + סירוב על דמה. לא LLM חי.",
+      "next": "טבלת eval במקום, בלי וקטורים עד בקשה."
+    },
+    {
+      "project_id": "sandbox-lab",
+      "title": "סנדבוקס מחקר",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.678430+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\form939-local-sandbox",
+      "stage": "מעבדה אישית. מחקר ו-benchmark סינתטי מותרים.",
+      "next": "סוכני מחקר רצים. בלי קורפוס Sagole אמיתי."
+    },
+    {
+      "project_id": "coc-tournament",
+      "title": "טורניר Clash",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.700890+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\coc-tournament",
+      "stage": "אתר הרשמה, ברקט, וצ'ק-אין.",
+      "next": "רק אם יש חיכוך במסך ציבורי."
+    },
+    {
+      "project_id": "coclz-connect",
+      "title": "CoCLZ",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.736977+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\coclz-connect",
+      "stage": "שיתוף בסיסים וצבאות.",
+      "next": "נפרד מהטורניר."
+    },
+    {
+      "project_id": "job-board",
+      "title": "job-board",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.852633+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\GitHub\\job-board",
+      "stage": "עמוד HTML מדוגמה מומצאת.",
+      "next": "בלי לוח משרות אמיתי."
+    },
+    {
+      "project_id": "fitness-tracker",
+      "title": "אתר מעקב כושר",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-29T23:55:45.867163+00:00",
+      "stage": "רשום ברשימת ההמשך. אין תיקייה מקומית במחשב הזה.",
+      "next": "לשלוח נתיב האתר או ריפו GitHub, ואז שינוי ראשון בטלגרם עם אשר שינוי."
+    },
+    {
+      "project_id": "demo",
+      "title": "demo",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "hub_status",
+      "updated_utc": "2026-09-29T23:55:45.881323+00:00"
+    },
+    {
+      "project_id": "virtual-closet",
+      "title": "ארון וירטואלי (Virtual Closet)",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-09-30T20:05:31.509990+00:00"
+    },
+    {
+      "project_id": "presentation-builder",
+      "title": "Presentation Builder 3.0",
+      "assigned_agent": "personal_projects_agent",
+      "pipeline": "portfolio_continue",
+      "updated_utc": "2026-10-02T15:36:34.488054+00:00"
+    },
+    {
+      "project_id": "system-engineering",
+      "title": "הנדסת מערכת (מאוחד ל-openclaw_hub)",
+      "assigned_agent": "chief_architect",
+      "pipeline": "orchestrator_vendor",
+      "updated_utc": "2026-10-03T16:05:00+00:00",
+      "path": "C:\\Users\\noam1\\Documents\\form939-agent-hub\\engineering",
+      "stage": "מאוחד — משימות ב-openclaw_hub/engineering; ARCHIVED.md",
+      "next": "file_bus/projects/system-engineering/ARCHIVED.md"
+    }
+  ]
+}

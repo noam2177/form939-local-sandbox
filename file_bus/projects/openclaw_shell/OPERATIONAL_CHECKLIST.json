@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "project_id": "openclaw_shell",
+  "title": "מעטפת OpenClaw (חלון Cursor)",
+  "assigned_agent": "personal_projects_agent",
+  "pipeline": "portfolio_continue",
+  "gates": [
+    {
+      "id": "registered",
+      "title": "נרשם במאגר הפרויקטים",
+      "done": true,
+      "auto": true
+    },
+    {
+      "id": "continue_next",
+      "title": "project/system-engineering; openclaw_shell/NEXT_STEPS.md",
+      "done": false,
+      "halt": true
+    }
+  ]
+}
