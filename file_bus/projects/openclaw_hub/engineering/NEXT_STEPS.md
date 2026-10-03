@@ -26,7 +26,7 @@ git checkout -b project/system-engineering
 | SYSENG-GLM-02 | מפעיל: מקור מפתח (z.ai / bigmodel.cn); העתקה נקייה | ⏳ | |
 | SYSENG-GLM-03 | `glm_doctor.py --live` | ⏳ | |
 | SYSENG-GLM-04 | יישור `GLM_API_BASE` ב-shell + Hub `.env` + restart :8788/טלגרם | ⏳ | Hub בחלון Hub |
-| SYSENG-GLM-05 | אורקסטרטור: `orchestrator_main.py run` + `--rules-cleanup` (אופציונלי) | ⏳ | |
+| SYSENG-GLM-05 | אורקסטרטור: `orchestrator_main.py run` (GLM מושבת כברירת מחדל — `ORCHESTRATOR_ENABLE_GLM=1`) | ✅ run | לא `--rules-cleanup` עד GLM יציב |
 | SYSENG-GLM-06 | רוטציה מפתח/טוקן אם הודבקו בצ'אט | ⏳ | |
 | SYSENG-GLM-07 | סנדבוקס `glm_flash` + OpenCode `ZAI_API_KEY` — יישור שרת | ⏳ | `sandbox-lab` |
 
