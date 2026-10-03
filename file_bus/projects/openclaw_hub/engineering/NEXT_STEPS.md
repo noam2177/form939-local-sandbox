@@ -64,9 +64,9 @@ git checkout -b project/system-engineering
 
 | ID | משימה | סטטוס | תיאור |
 |----|--------|--------|--------|
-| SYSENG-DASH-01 | API קריאה: `latest_run.json` + `vendor/manifest.json` readiness | ⏳ | JSON קיים; חסר UI |
-| SYSENG-DASH-02 | עמוד `/engineering` — סטטוס כלים, glm_config, תאריך ריצה | ⏳ | |
-| SYSENG-DASH-03 | כפתור «הרץ verify» (קריאה ל-orchestrator verify, ללא commit) | ⏳ | אישור מפעיל |
+| SYSENG-DASH-01 | API קריאה: `latest_run.json` + `vendor/manifest.json` readiness | ✅ | `GET /api/engineering` ב-Hub |
+| SYSENG-DASH-02 | עמוד `/engineering` — סטטוס כלים, glm_config, תאריך ריצה | ✅ | ענף Hub `project/system-engineering` |
+| SYSENG-DASH-03 | כפתור «הרץ verify» (קריאה ל-orchestrator verify, ללא commit) | ✅ | `POST /api/engineering/verify` |
 | SYSENG-DASH-04 | צפייה בכללים: רשימה מ-`.cursor/rules` (read-only) | ⏳ | |
 | SYSENG-DASH-05 | עריכה מבוקרת: טיוטת כלל → «אשר שינוי» (טלגרם/מפעיל) | 📋 | לא עריכה חופשית בפרוד |
 | SYSENG-DASH-06 | קישור ל-`openclaw_hub/engineering/NEXT_STEPS.md` בדשבורד | 📋 | |
