@@ -1,0 +1,542 @@
+{
+  "intro": "submitted",
+  "jobs": [
+    {
+      "title": "Sr Data Scientist II",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Paris-France/Sr-Data-Scientist-II_JR00000919-1",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "no_apply",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Sr. Data Engineer I",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Paris-France/Sr-Data-Engineer-I_JR00000989",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "stuck",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Sr. Manager of Engineering - PinAI",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Manager-of-Engineering---PinAI_B24-281-Q3",
+      "score": 5,
+      "summary": "5 — דרישת השכלה גבוהה מהפרופיל.",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Product Analyst",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Tel-Aviv-Israel/Sr-Product-Analyst_JR00001076",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "stuck",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Client Analytics Lead",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Client-Analytics-Lead_JR00000959-1",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Implementation Manager",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/SoPaulo-Brazil/Implementation-Manager_JR00001015",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "stuck",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Senior Customer Success Manager – Rockerbox",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Senior-Customer-Success-Manager---Rockerbox_JR00001060",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Technical Account Manager - Scibids",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Philippines-Remote/Technical-Account-Manager---Scibids_JR00000797",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "stuck",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Senior Revenue Operations Implementation Specialist",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Senior-Revenue-Operations-Implementation-Specialist_JR00001056",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Associate Business Director",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Tokyo-Japan/Associate-Business-Director_JR00000899",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Data Scientist",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Tel-Aviv-Israel/Data-Scientist_JR00001027-1",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "stuck",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Sr. Analytics Data Platform Engineer",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Analytics-Data-Platform-Engineer_JR00000054-1",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "stuck",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Sr. Director of Product Management - DV Publisher Suite",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Director-of-Product-Management---DV-Publisher-Suite_JR00001054",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Engineering Manager - Social",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/New-York-Remote/Sr-Engineering-Manager---Social_JR00000321",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "stuck",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Sr. Data Scientist I - Rockerbox",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/USA-Unknown-Remote/Sr-Data-Scientist-I---Rockerbox_JR00000372",
+      "score": 5,
+      "summary": "5 — דרישת השכלה גבוהה מהפרופיל.",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Client Partner",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Mexico-City-Mexico/Sr-Client-Partner_JR00001021",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Business Development Manager",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Business-Development-Manager_JR00000955",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Account Manager",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Account-Manager_JR00001104",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Sr. Software Engineer II - Data Platform - Rockerbox",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/USA-Unknown-Remote/Sr-Software-Engineer-II---AI-Rockerbox_JR00000417",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Sr. Director of Product Management - DV Marketplace Suite",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Director-of-Product-Management---DV-Marketplace-Suite_JR00001053",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Software Engineer I",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Tel-Aviv-Israel/Sr-Software-Engineer-I_JR00000339",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Senior Software Engineer I",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Senior-Software-Engineer-I_JR00001013-1",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Account Manager - London",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/London-UK/Account-Manager---London_JR00001064",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Account Manager Italy",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Milan-Italy/Account-Manager-Italy_JR00001036",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Staff Enterprise Architect",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Staff-Enterprise-Architect_JR00000904",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Sr. Devops Engineer II",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Ghent-Belgium/Sr-Devops-Engineer-II_JR00000664",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Lead Enterprise Sales Director",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Mexico-City-Mexico/Lead-Enterprise-Sales-Director_JR00001072",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Data Engineer I",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Data-Engineer-I_B24-208-Q2",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Corporate Systems Engineer, Collaboration Platforms",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Corporate-Systems-Engineer--Collaboration-Platforms_JR00000964",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Program Manager, Product Operations, Classification",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Program-Manager--Product-Operations--Classification_JR00000986",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "Sr. DevOps Engineer II, AI Platforms",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-DevOps-Engineer-II--AI-Platforms_JR00000999",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    },
+    {
+      "title": "AR Associate",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/AR-Associate_JR00001040",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "login_required",
+      "note": "Workday step 1/5 Create Account/Sign In"
+    }
+  ],
+  "applied": [],
+  "skipped": [
+    {
+      "title": "Sr Data Scientist II",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Paris-France/Sr-Data-Scientist-II_JR00000919-1",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Sr. Data Engineer I",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Paris-France/Sr-Data-Engineer-I_JR00000989",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Sr. Manager of Engineering - PinAI",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Manager-of-Engineering---PinAI_B24-281-Q3",
+      "score": 5,
+      "summary": "5 — דרישת השכלה גבוהה מהפרופיל.",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Product Analyst",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Tel-Aviv-Israel/Sr-Product-Analyst_JR00001076",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Client Analytics Lead",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Client-Analytics-Lead_JR00000959-1",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Implementation Manager",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/SoPaulo-Brazil/Implementation-Manager_JR00001015",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Senior Customer Success Manager – Rockerbox",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Senior-Customer-Success-Manager---Rockerbox_JR00001060",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Technical Account Manager - Scibids",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Philippines-Remote/Technical-Account-Manager---Scibids_JR00000797",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Senior Revenue Operations Implementation Specialist",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Senior-Revenue-Operations-Implementation-Specialist_JR00001056",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Associate Business Director",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Tokyo-Japan/Associate-Business-Director_JR00000899",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Data Scientist",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Tel-Aviv-Israel/Data-Scientist_JR00001027-1",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Sr. Analytics Data Platform Engineer",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Analytics-Data-Platform-Engineer_JR00000054-1",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Sr. Director of Product Management - DV Publisher Suite",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Director-of-Product-Management---DV-Publisher-Suite_JR00001054",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Engineering Manager - Social",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/New-York-Remote/Sr-Engineering-Manager---Social_JR00000321",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Sr. Data Scientist I - Rockerbox",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/USA-Unknown-Remote/Sr-Data-Scientist-I---Rockerbox_JR00000372",
+      "score": 5,
+      "summary": "5 — דרישת השכלה גבוהה מהפרופיל.",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Client Partner",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Mexico-City-Mexico/Sr-Client-Partner_JR00001021",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Business Development Manager",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Business-Development-Manager_JR00000955",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Account Manager",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Account-Manager_JR00001104",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Sr. Software Engineer II - Data Platform - Rockerbox",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/USA-Unknown-Remote/Sr-Software-Engineer-II---AI-Rockerbox_JR00000417",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Sr. Director of Product Management - DV Marketplace Suite",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Director-of-Product-Management---DV-Marketplace-Suite_JR00001053",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Software Engineer I",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Tel-Aviv-Israel/Sr-Software-Engineer-I_JR00000339",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Senior Software Engineer I",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Senior-Software-Engineer-I_JR00001013-1",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Account Manager - London",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/London-UK/Account-Manager---London_JR00001064",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Account Manager Italy",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Milan-Italy/Account-Manager-Italy_JR00001036",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Staff Enterprise Architect",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Staff-Enterprise-Architect_JR00000904",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Sr. Devops Engineer II",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Ghent-Belgium/Sr-Devops-Engineer-II_JR00000664",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Lead Enterprise Sales Director",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/Mexico-City-Mexico/Lead-Enterprise-Sales-Director_JR00001072",
+      "score": 22,
+      "summary": "22: הכותרת בכירה (senior/lead/מנהל) (−35). מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "skip_low",
+      "status": ""
+    },
+    {
+      "title": "Sr. Data Engineer I",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-Data-Engineer-I_B24-208-Q2",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Corporate Systems Engineer, Collaboration Platforms",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Corporate-Systems-Engineer--Collaboration-Platforms_JR00000964",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Program Manager, Product Operations, Classification",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Program-Manager--Product-Operations--Classification_JR00000986",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "Sr. DevOps Engineer II, AI Platforms",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/Sr-DevOps-Engineer-II--AI-Platforms_JR00000999",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    },
+    {
+      "title": "AR Associate",
+      "url": "https://doubleverify.wd5.myworkdayjobs.com/en-US/DV_Careers/job/NYC-Global-HQ/AR-Associate_JR00001040",
+      "score": 57,
+      "summary": "57: מסלול דאטה סיינס ג׳וניור (+12).",
+      "action": "apply",
+      "status": "blocked"
+    }
+  ]
+}
