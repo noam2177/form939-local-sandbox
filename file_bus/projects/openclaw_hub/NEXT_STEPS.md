@@ -14,9 +14,9 @@
 
 | ID | משימה | סטטוס |
 |----|--------|--------|
-| HUB-OPS-01 | אחרי SYSENG-GLM-04: restart :8788 + טלגרם | ⏳ |
+| HUB-OPS-01 | restart :8788 + טלגרם | 🔄 דשבורד :8788 על `master` (career+engineering); טלגרם — להפעיל מחדש ידנית |
 | HUB-OPS-02 | אימות E2E טלגרם → `spend_ledger.jsonl` | ⏳ |
-| HUB-GIT-01 | ענף `project/career-hunt` מ-master | ✅ |
+| HUB-GIT-01 | `project/career-hunt` + `project/system-engineering` → `master` | ✅ דחוף |
 
 ---
 
